@@ -4,6 +4,8 @@
   <xacro:include filename="inertial_macros.xacro" />
 
   <xacro:include filename="mobile_base.xacro" />
+  <xacro:include filename="mobile_base.ros2_control.xacro" />
+
   <!-- <xacro:include filename="mobile_base_gazebo.xacro" /> -->
   <!-- <xacro:include filename="arm.xacro" /> -->
   <!-- <xacro:include filename="arm_gazebo.xacro" /> -->
