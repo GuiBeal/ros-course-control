@@ -6,13 +6,12 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
 find_package(dynamixel_sdk REQUIRED)
 
 include_directories(include)
 
 add_executable(test_motors src/test_motors.cpp)
-ament_target_dependencies(test_motors rclcpp dynamixel_sdk)
+ament_target_dependencies(test_motors dynamixel_sdk)
 
 install(TARGETS
   test_motors
