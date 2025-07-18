@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <ros2_control name="Arm" type="system">
+    <hardware>
+      <!-- change this property to mock or not the arm hardware -->
+      <xacro:property name="mock_arm_hardware" value="true" />
+      <xacro:if value="${mock_arm_hardware}">
+        <plugin>mock_components/GenericSystem</plugin>
+        <param name="calculate_dynamics">true</param>
+      </xacro:if>
+      <xacro:unless value="${mock_arm_hardware}">
+        <plugin>arm_hardware/ArmHardwareInterface</plugin>
+        <param name="base_joint_motor_id">10</param>
+        <param name="forearm_joint_motor_id">20</param>
+        <param name="dynamixel_port">/dev/ttyACM0</param>
+      </xacro:unless>
+    </hardware>
+
+    <joint name="arm_base_forearm_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+    </joint>
+    <joint name="forearm_hand_joint">
+      <command_interface name="position" />
+      <state_interface name="position" />
+    </joint>
+  </ros2_control>
+</robot>

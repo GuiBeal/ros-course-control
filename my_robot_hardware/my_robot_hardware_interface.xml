@@ -6,4 +6,12 @@
       My hardware interface for a mobile base with two Dynamixel motors.
     </description>
   </class>
+
+  <class name="arm_hardware/ArmHardwareInterface"
+    type="arm_hardware::ArmHardwareInterface"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      My hardware interface for an arm with two Dynamixel motors.
+    </description>
+  </class>
 </library>

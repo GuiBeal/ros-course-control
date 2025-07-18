@@ -80,7 +80,6 @@
     <dynamics friction="0.3" damping="0.3" />
   </joint>
 
-
   <joint name="forearm_hand_joint" type="revolute">
     <parent link="forearm_link" />
     <child link="hand_link" />

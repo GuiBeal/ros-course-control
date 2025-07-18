@@ -2,6 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <ros2_control name="MobileBase" type="system">
     <hardware>
+      <!-- change this property to mock or not the mobile base hardware -->
       <xacro:property name="mock_mobile_base_hardware" value="true" />
       <xacro:if value="${mock_mobile_base_hardware}">
         <plugin>mock_components/GenericSystem</plugin>

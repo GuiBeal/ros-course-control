@@ -3,10 +3,13 @@ controller_manager:
     update_rate: 50
 
     joint_state_broadcaster:
-      type: "joint_state_broadcaster/JointStateBroadcaster"
+      type: joint_state_broadcaster/JointStateBroadcaster
 
     diff_drive_controller:
-      type: "diff_drive_controller/DiffDriveController"
+      type: diff_drive_controller/DiffDriveController
+
+    arm_joints_controller:
+      type: forward_command_controller/ForwardCommandController
 
 diff_drive_controller:
   ros__parameters:
@@ -21,8 +24,8 @@ diff_drive_controller:
     enable_odom_tf: true
     publish_rate: 50.0
 
-    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
-    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
 
     linear:
       x:
@@ -32,3 +35,8 @@ diff_drive_controller:
       z:
         max_velocity: 1.0
         min_velocity: -1.0
+
+arm_joints_controller:
+  ros__parameters:
+    joints: [arm_base_forearm_joint, forearm_hand_joint]
+    interface_name: position
