@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 50
+    update_rate: 10
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -10,6 +10,9 @@ controller_manager:
 
     arm_joints_controller:
       type: forward_command_controller/ForwardCommandController
+
+    my_arm_joints_controller:
+      type: arm_controller/ArmController
 
 diff_drive_controller:
   ros__parameters:
@@ -40,3 +43,9 @@ arm_joints_controller:
   ros__parameters:
     joints: [arm_base_forearm_joint, forearm_hand_joint]
     interface_name: position
+
+my_arm_joints_controller:
+  ros__parameters:
+    joints: [arm_base_forearm_joint, forearm_hand_joint]
+    interface_name: position
+    coefficient: 0.8
